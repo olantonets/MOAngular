@@ -1,0 +1,32 @@
+<div class="jumbotron">
+  <h1>Симплекс метод</h1>
+  <h3>Інструкція</h3>
+  <p>Оберіть кількість змінних та кількість рядків (кількість обмежень). Обмеження виду x
+    <sub>i</sub> ≥ 0 не враховуйте.</p>
+  <div class="input-symplex-form">
+    <form (ngSubmit)="onSubmit()" [formGroup]="symplexForm">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Кількість змінних" formControlName="varNumber" type="number" required>
+        <mat-error *ngIf="symplexForm.get('varNumber').hasError('max') && !symplexForm.get('varNumber').hasError('required')">
+          Будь ласка, введіть кількість меньше 8
+        </mat-error>
+        <mat-error *ngIf="symplexForm.get('varNumber').hasError('required')">
+          Кількість змінних вводити
+          <strong>обов'яково</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Кількість обмежень" formControlName="rowNumber" type="number" required>
+        <mat-error *ngIf="symplexForm.get('rowNumber').hasError('max') && !symplexForm.get('rowNumber').hasError('required')">
+          Будь ласка, введіть кількість меньше 16
+        </mat-error>
+        <mat-error *ngIf="symplexForm.get('rowNumber').hasError('required')">
+          Кількість обмежень вводити
+          <strong>обов'яково</strong>
+        </mat-error>
+      </mat-form-field>
+      <button type="submit" class="btn btn-success" [disabled]="!symplexForm.valid">Submit</button>
+    </form>
+  </div>
+
+</div>

@@ -1,21 +1,17 @@
-.container {
-    max-width: 960px;
-  }
-  
-  /*
-   * Custom translucent site header
-   */
-  
-  .site-header {
-    background-color: rgba(0, 0, 0, .85);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-  }
-  .site-header a {
-    color: #999;
-    transition: ease-in-out color .15s;
-  }
-  .site-header a:hover {
-    color: #fff;
-    text-decoration: none;
-  }
+.navbar.navbar-default {
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  background-color: #1A237E;
+}
+
+a.navbar-brand {
+  color: #fff;
+  font-size: 35px;
+  margin: 15px 0;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #fff;
+  font-size: 18px;
+  margin: 15px 0;
+}

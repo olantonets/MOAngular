@@ -4,29 +4,34 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
+import { SymplexMethodComponent } from './symplex-method/symplex-method.component';
+import { HomeComponent } from './home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-// const appRoutes: Routes = [
-//   { path: 'crisis-center', component: CrisisListComponent },
-//   { path: 'hero/:id',      component: HeroDetailComponent },
-//   {
-//     path: 'heroes',
-//     component: HeroListComponent,
-//     data: { title: 'Heroes List' }
-//   },
-//   { path: '',
-//     redirectTo: '/heroes',
-//     pathMatch: 'full'
-//   },
-//   { path: '**', component: PageNotFoundComponent }
-// ];
+const appRoutes: Routes = [
+  { path: 'symplex-method', component: SymplexMethodComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SymplexMethodComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+    MatInputModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
