@@ -9,7 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BackendService } from './backend.service';
 
 const appRoutes: Routes = [
   { path: 'symplex-method', component: SymplexMethodComponent },
@@ -31,9 +33,13 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    BackendService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

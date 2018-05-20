@@ -1,0 +1,15 @@
+.symplex-function-table {
+    max-width: 500px;
+    margin-bottom: 15px;
+}
+
+.symplex-function-table td,
+.symplex-function-table th {
+    /* max-width: 70px; */
+    min-width: 50px;
+    text-align: center;
+}
+
+.symplex-function-table input {
+    max-width: 80px;
+}
