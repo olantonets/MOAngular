@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SymplexMethodComponent } from './symplex-method.component';
+import { EvolutionComponent } from './evolution.component';
 
-describe('SymplexMethodComponent', () => {
-  let component: SymplexMethodComponent;
-  let fixture: ComponentFixture<SymplexMethodComponent>;
+describe('EvolutionComponent', () => {
+  let component: EvolutionComponent;
+  let fixture: ComponentFixture<EvolutionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SymplexMethodComponent ]
+      declarations: [ EvolutionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SymplexMethodComponent);
+    fixture = TestBed.createComponent(EvolutionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

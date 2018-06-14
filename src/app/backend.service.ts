@@ -9,25 +9,27 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class BackendService {
 
-  optimisationURL = 'http://localhost:8000';
+  //optimisationURL = 'http://localhost:8000';
+  optimisationURL = 'http://localhost:5000';
+
   constructor(private http: HttpClient) { }
 
-  public solveSymplexAll(table, b, sign, isMax, optimFunction) {
+  public optimizeAll(optFunction, isMax, lb, ub) {
     let body = {
-      table: table,
-      b: b,
-      sign: sign,
+      function: optFunction,
       isMax: isMax,
-      optimFunction: optimFunction
+      lb: lb,
+      ub: ub
     };
 
-    return this.http.post(`${this.optimisationURL}/symplex-all`, body)
-    .map(this.extractData)
-    .catch(this.handleError);
+    return this.http.put(`${this.optimisationURL}/evolution`, body);
+    // .map(this.extractData)
+    // .catch(this.handleError);
   }
 
   private extractData(res: Response) {
-    let body = res.json();
+    debugger;
+    let body = JSON.parse(res as string);
     return body;
   }
 

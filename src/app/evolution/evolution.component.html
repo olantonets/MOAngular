@@ -1,0 +1,81 @@
+<div class="breadcrumd">
+  <a routerLink='/home'>
+    <small>Домашня сторінка</small>
+  </a>
+  <small> / Еволюційні методи</small>
+</div>
+<h1>Еволюційні методи</h1>
+
+<div class="jumbotron">
+
+  <div class="form-group">
+    <label for="optFunction">Функція для оптимізації</label>
+    <div class="flex">
+      <div class="flex-grow">
+        <input type="text" class="form-control" id="optFunction" [(ngModel)]="inputFunc" placeholder="Введіть функцію для оптимізації">
+        <small>*Використовуйте PI для позначення для числа &pi;</small>
+      </div>
+      <span class="arrow">&rarr;</span>
+
+      <mat-form-field class="max-option">
+        <mat-select [(value)]="isMax">
+          <mat-option *ngFor="let opt of maxOptions" [value]="opt.value">
+            {{ opt.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="low">Масив нижніх меж змінних</label>
+    <input type="text" class="form-control" id="low" placeholder="* [ -5, -5 ]" [(ngModel)]="lb">
+  </div>
+
+  <div class="form-group">
+    <label for="low">Масив верхніх меж змінних</label>
+    <input type="text" class="form-control" id="low" placeholder="* [ 5, 5 ]" [(ngModel)]="ub">
+  </div>
+
+  <button class="btn btn-success" (click)="submit()">Знайти глобальній екстремум</button>
+</div>
+
+<mat-spinner *ngIf="inSolvingProccess"></mat-spinner>
+
+<div class="jumbotron" *ngIf="isDataReady">
+  <h3>Результат</h3>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Значення функції</th>
+          <th>Координати точки</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <th>Генетичний<br> алгоритм</th>
+          <td>{{genAff | number:'1.0-3'}}</td>
+          <td>[
+            <span *ngFor="let coord of genCoord">{{coord | number:'1.0-3'}} </span>]</td>
+        </tr>
+        <tr *ngFor="let im of immun; let i = index; let isFirst = first">
+          <th>
+            <span *ngIf="isFirst">ШІС</span>
+          </th>
+          <td>{{im[0] | number:'1.0-3'}}</td>
+          <td>[
+            <span *ngFor="let coord of im[1]">{{coord | number:'1.0-3'}} </span>]</td>
+        </tr>
+        <tr>
+            <th>Алгоритм <br>рою часток</th>
+            <td>{{partAff | number:'1.0-3'}}</td>
+            <td>[
+              <span *ngFor="let coord of partCoord">{{coord | number:'1.0-3'}} </span>]</td>
+          </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
